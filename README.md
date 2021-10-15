@@ -17,7 +17,7 @@ openssl ecparam -out payment.processing.private.key -name prime256v1 -genkey
 openssl req -new -sha256  -key payment.processing.private.key  -nodes -out payment.processing.reqauest.csr
 openssl pkcs8 -topk8 -in payment.processing.private.key  -out payment.processing.pk.ENCRYPTED.pem
 
-# upload merchant.identity.request.csr to  https://developer.apple.com/  on Apple Pay Merchant Identity Certificate, download signed cer File
+# upload payment.processing.reqauest.csr to  https://developer.apple.com/  on Apple Pay Payment Processing Certificate, download signed cer File
 openssl x509 -inform der -in apple_pay.cer -out payment.processing.pem
 
 # send this files to Gorgian Card
